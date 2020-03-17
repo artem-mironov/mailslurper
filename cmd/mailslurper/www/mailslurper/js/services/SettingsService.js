@@ -51,7 +51,7 @@ window.SettingsService = {
 		return new Promise(function (resolve, reject) {
 			$.ajax({
 				method: "GET",
-				url: "/servicesettings"
+				url: window.location.href.replace("#", "") + "/servicesettings"
 			}).then(
 				function (result) {
 					return resolve(result);
@@ -148,7 +148,7 @@ window.SettingsService = {
 			localStorage["settings"] = JSON.stringify(settings);
 
 			$.ajax({
-				url: "/theme",
+				url: window.SettingsService.getAppURL() + "/theme",
 				method: "POST",
 				dataType: "text",
 				contentType: "application/json; charset=utf-8",

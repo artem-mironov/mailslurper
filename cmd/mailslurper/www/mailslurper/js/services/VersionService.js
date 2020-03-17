@@ -8,7 +8,7 @@ window.VersionService = {
 	getVersionFromGithub: function (serviceURL) {
 		return new Promise(function (resolve, reject) {
 			$.ajax({
-				url: "/masterversion",
+				url: window.SettingsService.getAppURL() + "/masterversion",
 				method: "GET",
 				cache: false
 			}).then(
@@ -25,7 +25,7 @@ window.VersionService = {
 	getServerVersion: function () {
 		return new Promise(function (resolve, reject) {
 			$.ajax({
-				url: "/version",
+				url: window.SettingsService.getAppURL() + "/version",
 				method: "GET",
 				cache: false
 			}).then(
